@@ -1,0 +1,107 @@
+<!-- index.html -->
+<!DOCTYPE html> <!-- Declara el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Define el idioma del contenido como español -->
+<head>
+    <!-- METADATOS BÁSICOS -->
+    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres a UTF-8 para soportar caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Asegura que la página se vea bien en todos los dispositivos (diseño responsivo) -->
+
+    <!-- TÍTULO DE LA PÁGINA -->
+    <title>Gestor de Tareas</title> <!-- El título que aparece en la pestaña del navegador -->
+
+    <!-- ENLACES A HOJAS DE ESTILO Y FUENTES -->
+    <link rel="stylesheet" href="styles.css"> <!-- Enlaza nuestra hoja de estilos CSS local -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Preconecta con Google Fonts para mejorar la velocidad de carga de la fuente -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Preconecta con Google Fonts (necesario para la fuente) -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet"> <!-- Importa la fuente "Nunito" de Google Fonts -->
+    
+    <!-- ENLACE A FONT AWESOME PARA ICONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Importa la librería de iconos Font Awesome -->
+</head>
+<body>
+
+    <!-- ENCABEZADO DE LA PÁGINA -->
+    <header class="app-header">
+        <div class="logo">
+            <p>Mi Gestor</p>
+        </div>
+        <nav>
+            <button class="hamburger-menu" id="hamburger-menu" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="mobile-nav" id="mobile-nav">
+                <a href="#">Mi Perfil</a>
+                <a href="login.html">Cerrar Sesión</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL DE LA APLICACIÓN -->
+    <main class="main-content">
+        <!-- Título principal del área de contenido -->
+        <h1>Mis Tareas</h1>
+
+        <!-- FORMULARIO PARA CREAR NUEVA TAREA -->
+        <form id="create-task-form" class="create-task-form">
+            <h3>Añadir una nueva tarea</h3>
+            <div class="form-row">
+                <div class="form-group flex-grow">
+                    <label for="task-title">Título</label>
+                    <input type="text" id="task-title" placeholder="Ej: Preparar la presentación" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group flex-grow">
+                    <label for="task-desc">Descripción</label>
+                    <textarea id="task-desc" rows="2" placeholder="Ej: Investigar y crear las diapositivas..."></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="task-priority">Prioridad</label>
+                    <select id="task-priority">
+                        <option value="BAJA">Baja</option>
+                        <option value="MEDIA">Media</option>
+                        <option value="ALTA">Alta</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="task-status">Estado</label>
+                    <select id="task-status">
+                        <option value="PENDIENTE">Pendiente</option>
+                        <option value="EN_PROCESO">En Proceso</option>
+                        <option value="COMPLETADA">Completada</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn-add-task">Añadir Tarea</button>
+        </form>
+
+        <!-- SEPARADOR -->
+        <hr class="task-separator">
+
+        <!-- CONTENEDOR PARA LA LISTA DE TAREAS -->
+        <div id="task-list" class="task-list">
+            <!-- Las tareas se cargarán aquí dinámicamente con JavaScript -->
+        </div>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="app-footer">
+        <div class="social-media">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <div class="footer-info">
+            <p>📍 Ubicación: Ciudad Ficticia, Mundo Real</p>
+            <p>© 2025 | Diseñado por Zulma</p>
+        </div>
+    </footer>
+
+    <!-- ENLACE AL ARCHIVO JAVASCRIPT -->
+    <script src="app.js"></script>
+
+</body>
+</html>

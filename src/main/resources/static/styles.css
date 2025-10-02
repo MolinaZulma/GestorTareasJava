@@ -1,0 +1,355 @@
+/* styles.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+/* --- VARIABLES DE COLOR (PALETA PASTEL) --- */
+:root {
+    --background-color: #FFF8E1;
+    --header-footer-color: #A0E7E5;
+    --main-content-color: #FFFFFF;
+    --text-color: #5D5D5D;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --accent-color: #FFC3A0;
+    --input-border-color: #E0E0E0;
+    --priority-high-color: #FFAB91;
+    --priority-medium-color: #FFE082;
+    --priority-low-color: #C5E1A5;
+}
+
+/* --- ESTILOS GLOBALES Y RESETEO --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- LAYOUT PRINCIPAL --- */
+.main-content, .login-container {
+    flex-grow: 1;
+}
+
+/* --- ESTILOS DEL ENCABEZADO --- */
+.app-header {
+    background-color: var(--header-footer-color);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.hamburger-menu {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+/* --- ESTILOS DE LA NAVEGACIÓN MÓVIL --- */
+.mobile-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    overflow: hidden;
+}
+
+.mobile-nav.show {
+    display: block;
+}
+
+.mobile-nav a {
+    display: block;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.mobile-nav a:hover {
+    background-color: var(--background-color);
+}
+
+/* --- ESTILOS DEL CONTENIDO PRINCIPAL (PÁGINA DE TAREAS) --- */
+.main-content {
+    padding: 2rem;
+    max-width: 1100px; /* Aumentado el ancho */
+    margin: 2rem auto;
+    background-color: var(--main-content-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.main-content h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--header-footer-color);
+}
+
+/* --- FORMULARIO DE CREACIÓN DE TAREAS --- */
+.create-task-form {
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.create-task-form h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.flex-grow {
+    flex-grow: 1;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--input-border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.btn-add-task {
+    width: 100%;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-add-task:hover {
+    background-color: #ffab7a;
+}
+
+.task-separator {
+    border: none;
+    border-top: 1px solid #eee;
+    margin-bottom: 2rem;
+}
+
+/* --- LISTA DE TAREAS --- */
+.task-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.task-item {
+    background: #fff;
+    border-left: 5px solid var(--priority-low-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.task-item[data-priority="ALTA"] { border-left-color: var(--priority-high-color); }
+.task-item[data-priority="MEDIA"] { border-left-color: var(--priority-medium-color); }
+.task-item[data-priority="BAJA"] { border-left-color: var(--priority-low-color); }
+
+.task-item-header {
+    padding: 0.8rem 1.2rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.task-item-header h4 {
+    font-size: 1.2rem;
+}
+
+.task-item-body {
+    padding: 1.2rem;
+    flex-grow: 1;
+}
+
+.task-item-footer {
+    padding: 0.8rem 1.2rem;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    border-top: 1px solid #f0f0f0;
+}
+
+.task-status {
+    font-weight: 700;
+}
+
+.task-actions button {
+    background: none;
+    border: 1px solid transparent;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-edit {
+    color: #6c757d;
+}
+.btn-edit:hover {
+    background-color: #e9ecef;
+    border-color: #ced4da;
+}
+
+.btn-delete {
+    color: #dc3545;
+}
+.btn-delete:hover {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.empty-list-message {
+    text-align: center;
+    padding: 3rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+/* --- ESTILOS DEL PIE DE PÁGINA --- */
+.app-footer {
+    background-color: var(--header-footer-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 2rem;
+}
+
+.social-media {
+    margin-bottom: 1rem;
+}
+
+.social-media a {
+    color: var(--text-color);
+    margin: 0 0.75rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: var(--accent-color);
+}
+
+.footer-info p {
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+}
+
+/* --- ESTILOS DE LA PÁGINA DE LOGIN --- */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 2.5rem;
+    background-color: var(--main-content-color);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--header-footer-color);
+    font-size: 1.8rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px var(--accent-color);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #ffab7a;
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.login-footer a {
+    color: var(--accent-color);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
